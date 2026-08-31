@@ -47,6 +47,12 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Dhaner Poka uses your location to show accurate local weather for your field.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Dhaner Poka uses the camera to scan rice plants for pests and diseases.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Dhaner Poka needs access to your photos so you can pick an existing picture of a plant to scan.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

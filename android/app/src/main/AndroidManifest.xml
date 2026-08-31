@@ -1,6 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Scanner: live camera preview and capture. -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!-- Gallery picker: read the user's photos. READ_MEDIA_IMAGES is the
+         Android 13+ (API 33) permission; READ_EXTERNAL_STORAGE covers 32 and
+         below and is capped so newer devices do not request it. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+
+    <!-- Weather: the home card resolves the user's coordinates and place name.
+         COARSE is declared alongside FINE so the app still works if the user
+         grants only approximate location. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- The app is useful without a camera (gallery upload), so do not let the
+         Play Store filter out camera-less devices. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
     <application
-        android:label="rice_insect"
+        android:label="Dhaner Poka"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

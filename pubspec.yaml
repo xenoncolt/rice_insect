@@ -1,5 +1,5 @@
 name: rice_insect
-description: "A new Flutter project."
+description: "Dhaner Poka - rice pest and disease scanner."
 publish_to: 'none'
 version: 0.1.0+1
 
@@ -7,13 +7,51 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
+  camera: ^0.12.0+2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  geocoding: ^5.0.0
+  geolocator: ^14.0.3
+  http: ^1.6.0
+  photo_manager: ^3.12.0
+  photo_manager_image_provider: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/i18n/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Variable.ttf
+    - family: NotoSansBengali
+      fonts:
+        - asset: assets/fonts/NotoSansBengali-Variable.ttf
+
+# Launcher icons are generated from the same transparent master used in-app:
+#   dart run flutter_launcher_icons
+# Android 12+ builds its cold-start splash from this icon, so it also replaces
+# the default Flutter logo shown before the app's own splash renders.
+flutter_launcher_icons:
+  image_path: "assets/images/app_logo.png"
+  android: "ic_launcher"
+  ios: true
+  # iOS rejects icons with an alpha channel; flatten onto the app background.
+  remove_alpha_ios: true
+  background_color_ios: "#F8FBEE"
+  # The adaptive mask crops to roughly the middle two thirds, so inset the
+  # badge rather than letting the mask clip its scalloped edge.
+  adaptive_icon_background: "#F8FBEE"
+  adaptive_icon_foreground: "assets/images/app_logo.png"
+  adaptive_icon_foreground_inset: 18

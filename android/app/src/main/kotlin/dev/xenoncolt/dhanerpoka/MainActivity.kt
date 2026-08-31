@@ -1,4 +1,4 @@
-package com.example.rice_insect
+package dev.xenoncolt.dhanerpoka
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,131 @@
+{
+  "app": {
+    "name": "Dhaner Poka"
+  },
+  "nav": {
+    "home": "Home",
+    "askGemini": "Ask Gemini",
+    "status": "Status",
+    "settings": "Settings"
+  },
+  "home": {
+    "greeting": "Good morning, User",
+    "weather": {
+      "highLow": "H:{high}° L:{low}°",
+      "humidity": "{humidity}%",
+      "loading": "Getting local weather...",
+      "locationDenied": "Location permission needed for local weather.",
+      "locationOff": "Turn on location services for local weather.",
+      "unavailable": "Weather unavailable. Tap to retry.",
+      "retry": "Retry",
+      "unknownPlace": "Your location"
+    },
+    "scan": {
+      "title": "Start Scanning",
+      "subtitle": "Use your camera to detect crop health issues instantly.",
+      "button": "Open Camera Scanner"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "viewAll": "View All",
+      "scansCompleted": "3 Scans Completed",
+      "scansCompletedTime": "Today at 08:30 AM",
+      "brownSpotAlert": "Brown Spot Alert",
+      "brownSpotDetail": "Detected on Tomato Field B",
+      "viewDetails": "View Details",
+      "pestGuideUpdated": "Pest Guide Updated",
+      "pestGuideDetail": "New treatment methods added."
+    },
+    "badge": {
+      "actionNeeded": "Action Needed",
+      "isNew": "New"
+    }
+  },
+  "placeholder": {
+    "comingSoon": "Coming soon"
+  },
+  "language": {
+    "title": "Select a language\nভাষা নির্বাচন করুন",
+    "bengali": "Bengali (বাংলা)",
+    "english": "English"
+  },
+  "login": {
+    "subtitle": "Enter your phone number to continue.",
+    "phoneLabel": "Phone Number",
+    "phoneHint": "01793481919",
+    "continueAction": "Continue"
+  },
+  "otp": {
+    "title": "Verify your account",
+    "subtitle": "Enter the 6-digit verification code sent to your registered email address.",
+    "verify": "Verify Code",
+    "noCode": "Didn't receive the code?",
+    "resend": "Resend Code"
+  },
+  "scanner": {
+    "live": "LIVE AI SCAN",
+    "detecting": "Detecting Pests...",
+    "hint": "Keep camera steady on the leaf",
+    "mode": "PHOTO MODE",
+    "cameraUnavailable": "Camera unavailable. Check that Dhaner Poka has camera permission in your phone settings."
+  },
+  "processing": {
+    "title": "Processing Image",
+    "analyzing": "Analyzing leaf health...",
+    "checking": "Checking for pests...",
+    "note": "This usually takes just a few seconds. Please keep the app open.",
+    "cancel": "Cancel Analysis"
+  },
+  "debug": {
+    "skipLogin": "Skip login (debug)"
+  },
+  "gallery": {
+    "title": "Select Photos",
+    "recent": "Recent",
+    "source": "Camera Roll",
+    "upload": "Upload {count} Selected",
+    "permissionTitle": "Photo access needed",
+    "permissionBody": "Allow access to your photos so you can pick a picture to scan.",
+    "grantAccess": "Grant access",
+    "empty": "No photos found on this device."
+  },
+  "pest": {
+    "title": "Pest Details\n& Treatment Guide",
+    "highRisk": "High Risk",
+    "name": "Brown Plant Hopper",
+    "scientificName": "Nilaparvata lugens",
+    "summary": "A major pest of rice crops, primarily damaging plants by extracting sap from the phloem. Severe infestations cause \"hopperburn,\" where plants turn yellow and dry up rapidly.",
+    "treatmentGuide": "Treatment Guide",
+    "step1Title": "Drain the field",
+    "step1Body": "Remove standing water from the field for 3-4 days to reduce humidity at the base of the plants.",
+    "step2Title": "Apply Insecticide",
+    "step2Body": "Apply recommended systemic insecticides if hopper population exceeds the economic threshold level.",
+    "step3Title": "Monitor Stems",
+    "step3Body": "Regularly check the base of rice stems for nymphs and adults to assess treatment effectiveness.",
+    "preventiveMeasures": "Preventive Measures",
+    "measure1Title": "Resistant Varieties",
+    "measure1Body": "Cultivate BPH-resistant rice varieties suitable for your region.",
+    "measure2Title": "Fertilizer Management",
+    "measure2Body": "Avoid excessive use of nitrogen fertilizers which promote lush growth attractive to hoppers.",
+    "askGemini": "Ask Gemini",
+    "shareReport": "Share Report"
+  },
+  "weatherCondition": {
+    "clear": "Clear Sky",
+    "mainlyClear": "Mainly Clear",
+    "partlyCloudy": "Partly Cloudy",
+    "overcast": "Overcast",
+    "fog": "Fog",
+    "drizzle": "Drizzle",
+    "freezingDrizzle": "Freezing Drizzle",
+    "rain": "Rain",
+    "freezingRain": "Freezing Rain",
+    "snow": "Snow",
+    "snowGrains": "Snow Grains",
+    "rainShowers": "Rain Showers",
+    "snowShowers": "Snow Showers",
+    "thunderstorm": "Thunderstorm",
+    "thunderstormHail": "Thunderstorm with Hail",
+    "unknown": "Unknown"
+  }
+}
