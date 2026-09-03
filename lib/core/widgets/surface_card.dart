@@ -10,6 +10,7 @@ class SurfaceCard extends StatelessWidget {
     this.padding = const EdgeInsets.all(33),
     this.height,
     this.clipContents = false,
+    this.color,
     super.key,
   });
 
@@ -20,6 +21,9 @@ class SurfaceCard extends StatelessWidget {
   /// Welcome card only - it holds a decoration that bleeds past the corners.
   final bool clipContents;
 
+  /// Defaults to white; the settings cards are #F2F5E9 in the design.
+  final Color? color;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +31,7 @@ class SurfaceCard extends StatelessWidget {
       width: double.infinity,
       clipBehavior: clipContents ? Clip.antiAlias : Clip.none,
       decoration: BoxDecoration(
-        color: AppColors.surfaceCard,
+        color: color ?? AppColors.surfaceCard,
         borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: AppColors.outline.withValues(alpha: 0.3)),
         boxShadow: <BoxShadow>[

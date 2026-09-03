@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../core/l10n/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
+import '../activity/recent_activity_screen.dart';
 import 'gallery_picker_screen.dart';
 import 'processing_result_screen.dart';
 
@@ -385,7 +386,15 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
                 onTap: _capture,
               ),
               _ControlIconButton(icon: Icons.cameraswitch, onTap: _flipCamera),
-              _ControlIconButton(icon: Icons.history, onTap: () {}),
+              _ControlIconButton(
+                icon: Icons.history,
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const RecentActivityScreen(),
+                  ),
+                ),
+              ),
             ],
           ),
         ],

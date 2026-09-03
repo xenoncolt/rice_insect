@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../gemini/ask_gemini_screen.dart';
 import '../home/home_screen.dart';
+import '../settings/settings_screen.dart';
+import '../status/status_screen.dart';
 import 'placeholder_screen.dart';
 import 'widgets/app_bottom_nav.dart';
 
@@ -30,6 +33,9 @@ class _AppShellState extends State<AppShell> {
         duration: const Duration(milliseconds: 220),
         child: switch (_index) {
           0 => const HomeScreen(key: ValueKey<int>(0)),
+          1 => const AskGeminiScreen(key: ValueKey<int>(1)),
+          2 => const StatusScreen(key: ValueKey<int>(2)),
+          3 => const SettingsScreen(key: ValueKey<int>(3)),
           _ => PlaceholderScreen(
             key: ValueKey<int>(_index),
             titleKey: _destinations[_index].labelKey,

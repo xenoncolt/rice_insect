@@ -40,11 +40,33 @@ abstract final class AppColors {
   // Status
   static const Color error = Color(0xFFBA1A1A);
   static const Color errorContainer = Color(0xFFFFDAD6);
+
+  /// Ink on the error container - the "Pest" badge in the activity lists.
+  static const Color onErrorContainer = Color(0xFF93000A);
+
+  /// Moderate-risk badge on the pest cards.
+  static const Color warning = Color(0xFFFFB800);
   static const Color tertiary = Color(0xFF7E4F72);
   static const Color tertiaryContainer = Color(0xFFFFC4ED);
 
   /// Soft glow behind the welcome card heading.
   static const Color decorationGlow = Color(0xFFD1E9BE);
+
+  /// Inactive bottom-nav label, and the muted icon on timeline cards.
+  static const Color navLabel = Color(0xFF5A664F);
+
+  /// Neutral badge behind the settings list icons (#EEEEEC in the file).
+  static const Color settingsBadge = Color(0xFFEEEEEC);
+
+  /// Tint for the Video Tutorials help card.
+  static const Color videoTint = Color(0xFFD7E4C7);
+
+  /// Gemini's own accent - deliberately violet, not the app green, because the
+  /// assistant is a distinct brand in the design.
+  static const Color geminiAccent = Color(0xFF9B72CB);
+
+  /// The user's chat bubble.
+  static const Color chatBubble = Color(0xFFE1E4D8);
 
   // Camera scanner - a dark surface with its own brighter accent so the
   // viewfinder reads against a live camera feed.

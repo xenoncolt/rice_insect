@@ -4,6 +4,7 @@ import '../../../core/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/surface_card.dart';
+import '../../activity/recent_activity_screen.dart';
 import '../../pest/pest_details_screen.dart';
 
 /// Node 59:434 - the activity feed. Rows carry placeholder content until the
@@ -31,14 +32,23 @@ class RecentActivityCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const RecentActivityScreen(),
+                  ),
                 ),
-                child: Text(
-                  context.tr('home.activity.viewAll'),
-                  style: AppText.body.copyWith(color: AppColors.primary),
+                borderRadius: BorderRadius.circular(999),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  child: Text(
+                    context.tr('home.activity.viewAll'),
+                    style: AppText.body.copyWith(color: AppColors.primary),
+                  ),
                 ),
               ),
             ],
