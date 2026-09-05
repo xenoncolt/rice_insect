@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
 
-/// The white 24-radius card the design uses for every content block.
+/// white card, 24 radius. used all over.
 class SurfaceCard extends StatelessWidget {
   const SurfaceCard({
     required this.child,
@@ -18,10 +18,10 @@ class SurfaceCard extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final double? height;
 
-  /// Welcome card only - it holds a decoration that bleeds past the corners.
+  /// only the welcome card needs this, its glow goes past the corner
   final bool clipContents;
 
-  /// Defaults to white; the settings cards are #F2F5E9 in the design.
+  /// settings cards are #F2F5E9, everything else is white
   final Color? color;
 
   @override

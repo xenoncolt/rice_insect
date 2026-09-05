@@ -9,8 +9,7 @@ import 'features/onboarding/starting_screen.dart';
 class DhanerPokaApp extends StatefulWidget {
   const DhanerPokaApp({this.home, super.key});
 
-  /// Overridden by tests that want to land on a specific screen instead of
-  /// walking the splash and login flow.
+  /// tests use this to jump straight to a screen
   final Widget? home;
 
   @override
@@ -22,9 +21,8 @@ class _DhanerPokaAppState extends State<DhanerPokaApp> {
     kSupportedLocales.first,
   )..addListener(_onLocaleChanged);
 
-  /// Held rather than rebuilt from a Future on every frame: swapping languages
-  /// keeps the previous strings on screen until the new file has loaded, so the
-  /// navigation stack is never torn down mid-flow.
+  /// keep the loaded strings. if this is a Future rebuilt in build(), changing
+  /// language throws away the whole nav stack while the new file loads.
   AppLocalizations? _localizations;
 
   @override
@@ -57,8 +55,7 @@ class _DhanerPokaAppState extends State<DhanerPokaApp> {
       return const SizedBox.shrink();
     }
 
-    // Both scopes sit above MaterialApp so that pushed routes - which build
-    // under the Navigator - can still reach them.
+    // these must sit above MaterialApp or pushed routes can't find them
     return LocaleScope(
       controller: _localeController,
       child: AppLocalizationsScope(
@@ -69,9 +66,8 @@ class _DhanerPokaAppState extends State<DhanerPokaApp> {
           theme: AppTheme.light,
           locale: _localeController.value,
           supportedLocales: kSupportedLocales,
-          // Without these, Material's own strings resolve only for English and
-          // every TextField throws "No MaterialLocalizations found" as soon as
-          // the locale is Bengali.
+          // needed for bn. without them every TextField throws
+          // "No MaterialLocalizations found" the moment you switch.
           localizationsDelegates: const <LocalizationsDelegate<Object>>[
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

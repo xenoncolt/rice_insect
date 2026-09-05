@@ -7,19 +7,17 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/primary_pill_button.dart';
 
-/// Node 50:727.
+/// figma 50:727
 ///
-/// Built from the high-resolution Figma render rather than a design-context
-/// pull (the Figma MCP call limit was reached), so spacing here follows the
-/// token scale established by the other screens rather than exact node values.
-/// Worth a reconciliation pass against the node when calls are available again.
+/// built off the render, not exact node values (hit the figma api limit that
+/// day), so spacing follows the token scale. worth re-checking against the
+/// file at some point.
 ///
-/// The hero shows the scanned photo when there is one, and a placeholder panel
-/// otherwise - the photograph belongs to the scan, not the bundle.
+/// hero shows the scan photo if there is one, placeholder if not.
 class PestDetailsScreen extends StatelessWidget {
   const PestDetailsScreen({this.imagePath, super.key});
 
-  /// The captured or picked photo this result came from.
+  /// photo this result came from
   final String? imagePath;
 
   @override
@@ -138,8 +136,8 @@ class PestDetailsScreen extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back, size: 20),
                 color: AppColors.primary,
               ),
-              // Expanded rather than Spacer + Flexible, so the title runs
-              // flush to the right edge instead of stopping short.
+              // Expanded, not Spacer + Flexible. otherwise the title stops
+              // short of the right edge.
               Expanded(
                 child: Text(
                   context.tr('pest.title'),
@@ -217,8 +215,8 @@ class PestDetailsScreen extends StatelessWidget {
   }
 }
 
-/// The scanned photograph with the risk badge over it, falling back to a
-/// tinted panel when the result carries no image.
+/// scan photo with the risk badge on it, or a tinted panel if there's no
+/// image yet.
 class _HeroImage extends StatelessWidget {
   const _HeroImage({required this.imagePath});
 
@@ -334,7 +332,7 @@ class _SectionHeading extends StatelessWidget {
   }
 }
 
-/// A numbered step joined to the next by a connector line, as drawn.
+/// numbered step with the line joining it to the next one
 class _TreatmentStep extends StatelessWidget {
   const _TreatmentStep({
     required this.number,

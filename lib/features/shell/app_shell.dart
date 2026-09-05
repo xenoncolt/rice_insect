@@ -7,8 +7,7 @@ import '../status/status_screen.dart';
 import 'placeholder_screen.dart';
 import 'widgets/app_bottom_nav.dart';
 
-/// Holds the four bottom-bar destinations. Only Home is designed so far; the
-/// rest land here as their Figma frames get built.
+/// the 4 bottom nav tabs
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
 

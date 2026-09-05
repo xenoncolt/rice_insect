@@ -8,14 +8,10 @@ import '../../core/widgets/primary_pill_button.dart';
 import '../../core/widgets/surface_card.dart';
 import 'widgets/settings_app_bar.dart';
 
-/// Node 62:83 (Settings - Languages).
+/// figma 62:83. card with heading, description and two radio rows, then
+/// reset + save underneath.
 ///
-/// Geometry from the node tree: a 358x276 card holding an icon-and-heading row,
-/// the description, and two 310x54 radio rows, with Cancel and Save buttons in
-/// a 358x46 action area beneath it.
-///
-/// This is the only way to change language after onboarding, so Save actually
-/// applies the locale.
+/// only way to change language after onboarding, so save actually applies it.
 class LanguagesScreen extends StatefulWidget {
   const LanguagesScreen({super.key});
 
@@ -129,7 +125,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
   }
 }
 
-/// Node 62:103 - a 310x54 row with the label at x17 and the radio at the right.
+/// 310x54 row, label on the left and the radio on the right
 class _LanguageRow extends StatelessWidget {
   const _LanguageRow({
     required this.label,

@@ -6,8 +6,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/primary_pill_button.dart';
 import '../../../core/widgets/surface_card.dart';
 
-/// Node 59:419 - the primary call to action. The scanner badge breathes gently
-/// so the card reads as the live entry point on the screen.
+/// figma 59:419. main cta. the icon breathes a bit so the card looks alive.
 class ScanActionCard extends StatefulWidget {
   const ScanActionCard({this.onScanPressed, super.key});
 

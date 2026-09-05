@@ -7,8 +7,8 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/primary_pill_button.dart';
 import '../auth/login_phone_screen.dart';
 
-/// Node 25:119. Picking a row switches the app locale immediately, so the rest
-/// of the flow is already in the chosen language.
+/// figma 25:119. tapping a row switches locale straight away so the rest of
+/// the flow is already translated.
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
 
@@ -146,7 +146,7 @@ class _LanguageOption extends StatelessWidget {
   }
 }
 
-/// Filled disc with a cut-out centre when chosen, hollow ring when not.
+/// filled dot when selected, empty ring when not
 class _Radio extends StatelessWidget {
   const _Radio({required this.selected});
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Dips slightly while held, so taps feel physical. Used by the primary
-/// buttons and the activity rows.
+/// small dip while held so taps feel real
 class PressScale extends StatefulWidget {
   const PressScale({
     required this.child,

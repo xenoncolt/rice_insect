@@ -9,7 +9,7 @@ import '../../core/widgets/primary_pill_button.dart';
 import '../shell/app_shell.dart';
 import 'otp_screen.dart';
 
-/// Node 1:17388.
+/// figma 1:17388
 class LoginPhoneScreen extends StatefulWidget {
   const LoginPhoneScreen({super.key});
 
@@ -37,7 +37,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
 
   bool get _canContinue => _phone.text.trim().length >= 11;
 
-  /// Debug builds only - jumps past the whole login flow.
+  /// debug only, skips the whole login
   void _skipLogin() {
     Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute<void>(

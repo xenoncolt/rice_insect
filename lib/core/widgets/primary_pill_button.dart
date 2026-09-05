@@ -4,9 +4,8 @@ import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
 import 'press_scale.dart';
 
-/// The filled green pill used for every primary action in the design. The
-/// screens differ only in size, label style and whether the icon leads or
-/// trails, so those are the knobs here.
+/// the green pill button. every screen uses it, they only differ in size,
+/// text style and which side the icon sits on.
 class PrimaryPillButton extends StatelessWidget {
   const PrimaryPillButton({
     this.label,
@@ -28,13 +27,12 @@ class PrimaryPillButton extends StatelessWidget {
   final IconData? icon;
   final VoidCallback? onPressed;
 
-  /// Login and language buttons trail their arrow; the scanner CTA leads with
-  /// its camera.
+  /// login/language put the arrow after the text, scan button leads with it
   final bool iconAfterLabel;
 
   final double? height;
 
-  /// Defaults to filling its parent; pass null to size to the label instead.
+  /// null = shrink to fit the label
   final double? width;
   final EdgeInsetsGeometry padding;
   final double iconSize;

@@ -6,13 +6,11 @@ import '../../core/l10n/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 
-/// Node 1:17193.
+/// figma 1:17193
 ///
-/// Figma draws the assistant's reply as a header and timestamp with no body -
-/// a mock-up placeholder rather than a real turn - so a reply bubble is
-/// rendered here to make the conversation read sensibly. The sample exchange is
-/// seeded content; swap [_seedConversation] for the real chat once a backend
-/// exists.
+/// figma draws the ai reply as just a header + timestamp with no body, which
+/// looks broken in a real chat, so I added a reply bubble. the sample chat is
+/// hardcoded - replace _seedConversation when there's a backend.
 class AskGeminiScreen extends StatefulWidget {
   const AskGeminiScreen({super.key});
 
@@ -84,7 +82,7 @@ class _AskGeminiScreenState extends State<AskGeminiScreen> {
       ];
       _input.clear();
     });
-    // Keep the newest turn in view once the list has laid out.
+    // scroll to the new message after the list lays out
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scroll.hasClients) {
         _scroll.animateTo(
@@ -295,8 +293,7 @@ class _MessageBubble extends StatelessWidget {
         ),
         if (message.hasAttachment) ...<Widget>[
           const SizedBox(height: 8),
-          // Placeholder for the photo attached to a question; real chats carry
-          // the captured or picked image here.
+          // placeholder for the attached photo
           Container(
             width: 192,
             height: 128,

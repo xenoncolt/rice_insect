@@ -7,7 +7,7 @@ import 'widgets/recent_activity_card.dart';
 import 'widgets/scan_action_card.dart';
 import 'widgets/welcome_weather_card.dart';
 
-/// Node 59:356. Cards fade and rise in sequence on first paint.
+/// figma 59:356. cards fade + slide up one after another on first paint.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -75,8 +75,8 @@ class _HomeScreenState extends State<HomeScreen>
   }
 }
 
-/// Fades and lifts [child] into place, offset by [order] so the cards arrive
-/// one after another rather than all at once.
+/// fades + lifts the child in. order staggers them so they don't all land
+/// at once.
 class _Staggered extends StatelessWidget {
   const _Staggered({
     required this.controller,

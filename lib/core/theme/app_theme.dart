@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
-/// Type scale from the Figma file. Inter carries the Latin glyphs; Noto Sans
-/// Bengali is registered as a fallback so Bengali strings from the translation
-/// files render instead of falling back to tofu boxes.
+/// type scale from figma. Inter for latin, Noto Bengali as fallback
+/// so bangla doesn't come out as empty boxes.
 TextStyle appTextStyle({
   required double size,
   required double lineHeight,
@@ -18,8 +17,8 @@ TextStyle appTextStyle({
     fontSize: size,
     height: lineHeight / size,
     fontWeight: weight,
-    // Both fonts are variable, so the weight has to be driven through the
-    // `wght` axis - `fontWeight` alone would only pick the default instance.
+    // both fonts are variable so weight has to go through the wght axis.
+    // fontWeight on its own just gives the default instance.
     fontVariations: <FontVariation>[
       FontVariation('wght', weight.value.toDouble()),
     ],
@@ -31,7 +30,7 @@ TextStyle appTextStyle({
 abstract final class AppText {
   const AppText._();
 
-  /// 36/40, -0.9 tracking - the weather temperature.
+  /// 36/40, weather temp
   static TextStyle get display => appTextStyle(
     size: 36,
     lineHeight: 40,
@@ -40,7 +39,7 @@ abstract final class AppText {
     color: AppColors.onSurface,
   );
 
-  /// 16/24 medium - card and list headings.
+  /// 16/24 medium, card + list headings
   static TextStyle get titleMedium => appTextStyle(
     size: 16,
     lineHeight: 24,
@@ -48,14 +47,14 @@ abstract final class AppText {
     color: AppColors.onSurface,
   );
 
-  /// 16/24 regular - body copy and most labels.
+  /// 16/24, body text
   static TextStyle get body =>
       appTextStyle(size: 16, lineHeight: 24, color: AppColors.onSurface);
 
   static TextStyle get bodyMuted =>
       appTextStyle(size: 16, lineHeight: 24, color: AppColors.onSurfaceVariant);
 
-  /// 12/18 medium - weather metrics.
+  /// 12/18 medium, weather metrics
   static TextStyle get caption => appTextStyle(
     size: 12,
     lineHeight: 18,
@@ -63,7 +62,7 @@ abstract final class AppText {
     color: AppColors.onSurfaceVariant,
   );
 
-  /// 10/15 medium, 0.25 tracking, uppercase - status badges.
+  /// 10/15 medium, badges
   static TextStyle get badge => appTextStyle(
     size: 10,
     lineHeight: 15,
@@ -76,7 +75,7 @@ abstract final class AppText {
 abstract final class AppTheme {
   const AppTheme._();
 
-  /// Corner radius used by every card in the design.
+  /// every card uses this radius
   static const double cardRadius = 24;
 
   static ThemeData get light {

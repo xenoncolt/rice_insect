@@ -5,8 +5,8 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../settings/widgets/settings_app_bar.dart';
 
-/// Node 49:186 (Comments) - the thread behind a feed post: the original
-/// question, replies indented beneath it, and a composer pinned to the bottom.
+/// figma 49:186. the thread behind a post - question, indented replies,
+/// composer stuck to the bottom.
 class CommentsScreen extends StatefulWidget {
   const CommentsScreen({super.key});
 

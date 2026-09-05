@@ -8,11 +8,7 @@ import '../help/help_screen.dart';
 import 'account_screen.dart';
 import 'languages_screen.dart';
 
-/// Node 1:17514 (Settings - Preferences).
-///
-/// Layout, sizes and the row set come from the Figma node tree. The row labels
-/// were recovered from layer names and their measured text widths; copy that
-/// Figma did not preserve is marked in the translation files.
+/// figma 1:17514. profile card, 3 rows, sign out.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -153,7 +149,7 @@ class _SettingsAppBar extends StatelessWidget {
   }
 }
 
-/// Node 1:17553 - 358x196 with a 96pt avatar over the account name.
+/// 358x196, 96pt avatar with the name under it
 class _ProfileCard extends StatelessWidget {
   const _ProfileCard();
 
@@ -203,7 +199,7 @@ class _SettingsRow {
   final VoidCallback onTap;
 }
 
-/// Node 1:17564 - three 88pt rows separated by hairlines.
+/// three 88pt rows with dividers between
 class _SettingsList extends StatelessWidget {
   const _SettingsList({required this.rows});
 
@@ -269,7 +265,7 @@ class _SettingsList extends StatelessWidget {
   }
 }
 
-/// Node 1:17626 - 150x46 outlined pill with a leading icon.
+/// 150x46 pill, icon then label
 class _SignOutButton extends StatelessWidget {
   const _SignOutButton({required this.onTap});
 

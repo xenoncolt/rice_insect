@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Colours lifted directly from the Figma file (Dhaner Poka, node 59:356).
-/// Keep these as the single source of truth - screens should read them through
-/// [Theme.of] where a Material role exists, and from here when one does not.
+/// colours straight from the figma file.
+/// single source of truth, don't hardcode hex anywhere else.
 abstract final class AppColors {
   const AppColors._();
 
@@ -19,7 +18,7 @@ abstract final class AppColors {
   static const Color surfaceVariant = Color(0xFFE7E9DD);
   static const Color navBar = Color(0xFFECEFE3);
 
-  /// Frosted panel behind the weather block and the focused OTP box.
+  /// weather panel + focused otp box
   static const Color surfaceSubtle = Color(0xFFF2F5E9);
 
   // Text
@@ -31,45 +30,43 @@ abstract final class AppColors {
   static const Color outlineStrong = Color(0xFF75796C);
   static const Color divider = Color(0xFFECEFE3);
 
-  /// Splash progress track.
+  /// splash progress bar track
   static const Color progressTrack = Color(0xFFE1E4D8);
 
-  /// Slightly darker body colour used by the language rows.
+  /// bit darker than onSurface, language rows use it
   static const Color onSurfaceStrong = Color(0xFF191D15);
 
   // Status
   static const Color error = Color(0xFFBA1A1A);
   static const Color errorContainer = Color(0xFFFFDAD6);
 
-  /// Ink on the error container - the "Pest" badge in the activity lists.
+  /// text on errorContainer (the "Pest" badge)
   static const Color onErrorContainer = Color(0xFF93000A);
 
-  /// Moderate-risk badge on the pest cards.
+  /// moderate risk badge
   static const Color warning = Color(0xFFFFB800);
   static const Color tertiary = Color(0xFF7E4F72);
   static const Color tertiaryContainer = Color(0xFFFFC4ED);
 
-  /// Soft glow behind the welcome card heading.
+  /// blurred glow in the welcome card
   static const Color decorationGlow = Color(0xFFD1E9BE);
 
-  /// Inactive bottom-nav label, and the muted icon on timeline cards.
+  /// inactive nav label + muted timeline icons
   static const Color navLabel = Color(0xFF5A664F);
 
-  /// Neutral badge behind the settings list icons (#EEEEEC in the file).
+  /// grey circle behind the settings row icons
   static const Color settingsBadge = Color(0xFFEEEEEC);
 
-  /// Tint for the Video Tutorials help card.
+  /// video tutorials card tint
   static const Color videoTint = Color(0xFFD7E4C7);
 
-  /// Gemini's own accent - deliberately violet, not the app green, because the
-  /// assistant is a distinct brand in the design.
+  /// gemini purple. not the app green on purpose, it's their brand.
   static const Color geminiAccent = Color(0xFF9B72CB);
 
-  /// The user's chat bubble.
+  /// user chat bubble
   static const Color chatBubble = Color(0xFFE1E4D8);
 
-  // Camera scanner - a dark surface with its own brighter accent so the
-  // viewfinder reads against a live camera feed.
+  // scanner colours. dark + a brighter green so it shows over the camera.
   static const Color scanAccent = Color(0xFFA8E77B);
   static const Color scanGlass = Color(0xFF191D15);
 }

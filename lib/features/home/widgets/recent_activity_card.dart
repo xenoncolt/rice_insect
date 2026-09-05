@@ -7,9 +7,8 @@ import '../../../core/widgets/surface_card.dart';
 import '../../activity/recent_activity_screen.dart';
 import '../../pest/pest_details_screen.dart';
 
-/// Node 59:434 - the activity feed. Rows carry placeholder content until the
-/// backend lands; the shapes match the Figma frame so real data drops straight
-/// in.
+/// figma 59:434. rows are dummy data for now, but the shape matches so real
+/// data can drop straight in.
 class RecentActivityCard extends StatelessWidget {
   const RecentActivityCard({super.key});
 
@@ -22,8 +21,7 @@ class RecentActivityCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              // Flexible so a longer translation shortens rather than
-              // overflowing the card.
+              // Flexible, bangla is longer and would overflow
               Flexible(
                 child: Text(
                   context.tr('home.activity.title'),

@@ -7,11 +7,8 @@ import '../../core/widgets/primary_pill_button.dart';
 import '../../core/widgets/surface_card.dart';
 import 'widgets/settings_app_bar.dart';
 
-/// Node 1:17706 (Settings - Account).
-///
-/// Geometry from the node tree: a 358x559 card, 96pt avatar with a change-photo
-/// badge, then two 308x70 labelled fields and a trailing Save button. The field
-/// labels and their sample values survived in the layer names.
+/// figma 1:17706. 358x559 card, 96pt avatar with the camera badge, two
+/// labelled fields, save button on the right.
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
 

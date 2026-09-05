@@ -8,11 +8,10 @@ import '../activity/recent_activity_screen.dart';
 import 'gallery_picker_screen.dart';
 import 'processing_result_screen.dart';
 
-/// Node 1:16968, backed by a live camera preview.
+/// figma 1:16968, with a real camera preview.
 ///
-/// Every plugin call is guarded: on a device with no camera, with the
-/// permission refused, or in a widget test where no platform channel exists,
-/// the screen falls back to [_CameraViewport]'s message instead of throwing.
+/// every plugin call is wrapped. no camera, permission denied, or running in
+/// a test = fall back to the message instead of blowing up.
 class CameraScannerScreen extends StatefulWidget {
   const CameraScannerScreen({super.key});
 
@@ -52,8 +51,8 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
     super.dispose();
   }
 
-  /// Release the camera while the app is backgrounded and pick it up again on
-  /// resume - Android revokes the handle otherwise.
+  /// drop the camera when backgrounded and grab it again on resume.
+  /// android takes the handle away otherwise.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     final CameraController? controller = _controller;
@@ -78,8 +77,8 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
       _cameras = cameras;
       await _selectCamera(0);
     } on Object {
-      // CameraException, permission refusal, or MissingPluginException under
-      // `flutter test` - all end in the same fallback.
+      // CameraException / denied permission / no plugin in tests.
+      // all end up the same way.
       _markFailed();
     }
   }
@@ -129,7 +128,7 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
         _flashOn ? FlashMode.torch : FlashMode.off,
       );
     } on Object {
-      // Plenty of front cameras have no torch; the button just does nothing.
+      // most front cameras have no torch, button just does nothing
     }
   }
 
@@ -149,7 +148,7 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
         final XFile shot = await controller.takePicture();
         imagePath = shot.path;
       } on Object {
-        // Fall through with no image; processing still runs.
+        // no image, but let processing run anyway
       }
     }
 
@@ -403,8 +402,8 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
   }
 }
 
-/// The live preview, cropped to fill the screen, under the design's dark
-/// scrim. Falls back to a message when no camera is available.
+/// live preview cropped to fill, with the dark scrim on top.
+/// shows a message if there's no camera.
 class _CameraViewport extends StatelessWidget {
   const _CameraViewport({
     required this.controller,
@@ -454,8 +453,8 @@ class _CameraViewport extends StatelessWidget {
         FittedBox(
           fit: BoxFit.cover,
           child: SizedBox(
-            // previewSize is reported landscape-first, so swap the axes to
-            // fill a portrait screen without stretching the image.
+            // previewSize comes back landscape-first, so swap w/h or the
+            // preview comes out stretched
             width: preview.height,
             height: preview.width,
             child: CameraPreview(camera),
@@ -517,7 +516,7 @@ class _GlassCircleButton extends StatelessWidget {
   }
 }
 
-/// The green "live" dot, breathing so the chip reads as active.
+/// the green dot, pulses so the chip looks live
 class _PulsingDot extends StatefulWidget {
   const _PulsingDot();
 
@@ -614,8 +613,7 @@ class _ControlIconButton extends StatelessWidget {
   }
 }
 
-/// Opens the in-app gallery grid. Shows the newest photo as its thumbnail once
-/// the picker hands one back.
+/// opens the gallery grid. should show the latest photo as its thumb later.
 class _GalleryThumbButton extends StatelessWidget {
   const _GalleryThumbButton({required this.onTap});
 

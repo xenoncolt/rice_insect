@@ -8,25 +8,23 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/primary_pill_button.dart';
 import 'processing_result_screen.dart';
 
-/// Node 1:17419, backed by the device's photo library.
+/// figma 1:17419, reads the device photos.
 ///
-/// If the permission is refused the screen says so and offers the settings
-/// shortcut. If the plugin is unavailable at all - as under `flutter test` -
-/// it falls back to placeholder tiles so the layout still renders.
+/// permission denied = show the prompt + settings shortcut. no plugin at all
+/// (tests) = placeholder tiles so the layout still shows.
 class GalleryPickerScreen extends StatefulWidget {
   const GalleryPickerScreen({this.debugPhotoLoader, super.key});
 
-  /// Test seam. `PhotoManager.requestPermissionExtend` waits on the user, so it
-  /// never completes without a platform channel and cannot be given a timeout
-  /// without cutting off a real permission prompt. Supplying a loader here
-  /// bypasses the plugin entirely; production always leaves it null.
+  /// for tests only. requestPermissionExtend waits on the user so it never
+  /// finishes without a platform channel, and I can't just add a timeout or
+  /// it would cut off a real permission dialog. always null in the app.
   @visibleForTesting
   final Future<List<AssetEntity>> Function()? debugPhotoLoader;
 
-  /// Placeholder tile count used only when no library is reachable.
+  /// how many empty tiles to draw when there's no library
   static const int placeholderCount = 12;
 
-  /// How many photos to read from the camera roll.
+  /// how many photos to load
   static const int pageSize = 60;
 
   @override
@@ -91,14 +89,14 @@ class _GalleryPickerScreenState extends State<GalleryPickerScreen> {
       }
       setState(() {
         _assets = assets;
-        // Figma shows the first photo already picked.
+        // figma has the first photo already selected
         if (assets.isNotEmpty) {
           _selected.add(0);
         }
         _loading = false;
       });
     } on Object {
-      // MissingPluginException under `flutter test`, or an unreadable library.
+      // no plugin in tests, or the library can't be read
       if (mounted) {
         setState(() => _loading = false);
       }
@@ -125,7 +123,7 @@ class _GalleryPickerScreenState extends State<GalleryPickerScreen> {
         try {
           imagePath = (await _assets[index].file)?.path;
         } on Object {
-          // Fall through with no image; processing still runs.
+          // no image, let processing run anyway
         }
       }
     }
@@ -342,8 +340,7 @@ class _GalleryPickerScreenState extends State<GalleryPickerScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            // Flexible so a longer translation shrinks the label instead of
-            // overflowing the bar.
+            // Flexible, bangla is longer and would overflow the bar
             Flexible(
               child: PrimaryPillButton(
                 label: context.tr('gallery.upload', <String, String>{
@@ -373,7 +370,7 @@ class _PhotoTile extends StatelessWidget {
     required this.onTap,
   });
 
-  /// Null when no library is reachable, which draws the placeholder tile.
+  /// null = draw the placeholder tile
   final AssetEntity? asset;
   final bool selected;
   final VoidCallback onTap;
@@ -386,7 +383,7 @@ class _PhotoTile extends StatelessWidget {
       onTap: onTap,
       child: Stack(
         children: <Widget>[
-          // Selecting insets and rounds the thumbnail, as drawn in Figma.
+          // figma insets + rounds the thumb when it's selected
           Positioned.fill(
             child: AnimatedPadding(
               duration: const Duration(milliseconds: 180),

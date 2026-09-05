@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
 
-/// Shared card shell for the activity lists: 358 wide, #F2F5E9, 16pt radius.
+/// shared card shell for the activity lists. #F2F5E9, 16 radius.
 class ActivityCard extends StatelessWidget {
   const ActivityCard({
     required this.child,
@@ -36,7 +36,7 @@ class ActivityCard extends StatelessWidget {
   }
 }
 
-/// Node 1:17902 - the "Pest" / "Healthy" pill.
+/// the "Pest" / "Healthy" pill
 class TypeBadge extends StatelessWidget {
   const TypeBadge({required this.label, required this.pest, super.key});
 
@@ -91,7 +91,7 @@ class ScanEntry {
   final String block;
 }
 
-/// Node 1:17897 - 103pt row: 64pt thumbnail, title with badge, date, block.
+/// 103pt row: thumb, title + badge, date, block
 class ScanEntryCard extends StatelessWidget {
   const ScanEntryCard({
     required this.entry,
@@ -198,7 +198,7 @@ class _MetaRow extends StatelessWidget {
   }
 }
 
-/// Node 50:427 - grouped timeline entry with a 48pt tinted badge.
+/// timeline entry with the tinted icon badge
 class TimelineCard extends StatelessWidget {
   const TimelineCard({
     required this.title,
@@ -265,8 +265,7 @@ class TimelineCard extends StatelessWidget {
                   spacing: 8,
                   children: <Widget>[
                     if (badge != null)
-                      // Flexible so a long badge shortens instead of pushing
-                      // the timestamp off the card.
+                      // Flexible or a long badge pushes the time off the card
                       Flexible(
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -314,7 +313,7 @@ class TimelineCard extends StatelessWidget {
 
 enum PestRisk { high, moderate, low }
 
-/// Node 50:585 - photo, risk badge, then a detail block with an action.
+/// photo, risk badge, then the details and an action button
 class PestCard extends StatelessWidget {
   const PestCard({
     required this.name,

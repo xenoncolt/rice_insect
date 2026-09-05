@@ -6,9 +6,8 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/primary_pill_button.dart';
 import 'comments_screen.dart';
 
-/// Node 49:6 (Status) - the community feed: a composer card over a stream of
-/// posts, each with an author, an optional alert badge, a body, counts, and
-/// inline replies.
+/// figma 49:6. community feed - composer on top, then posts with author,
+/// optional alert badge, body and counts.
 class StatusScreen extends StatefulWidget {
   const StatusScreen({super.key});
 
@@ -134,7 +133,7 @@ class _StatusScreenState extends State<StatusScreen> {
     );
   }
 
-  /// Node 49:52 - 358x215 white card with the prompt and a Post button.
+  /// white card with the prompt + Post button
   Widget _composerCard(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),

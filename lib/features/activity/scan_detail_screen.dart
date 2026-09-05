@@ -8,10 +8,8 @@ import '../pest/pest_details_screen.dart';
 import '../settings/widgets/settings_app_bar.dart';
 import 'widgets/activity_cards.dart';
 
-/// Node 1:17630 (Recent Activity - Scan Detail).
-///
-/// A 358x268 hero with the detection box, a diagnosis card carrying the
-/// confidence ring, the recommended actions, then the scan metadata rows.
+/// figma 1:17630. hero with the detection box, diagnosis card with the
+/// confidence ring, actions, then the metadata rows.
 class ScanDetailScreen extends StatelessWidget {
   const ScanDetailScreen({super.key});
 
@@ -41,7 +39,7 @@ class ScanDetailScreen extends StatelessWidget {
     );
   }
 
-  /// Node 1:17636 - the scan photo with a simulated bounding box.
+  /// scan photo with a fake bounding box drawn on it
   Widget _hero(BuildContext context) {
     return Container(
       height: 268,
@@ -105,7 +103,7 @@ class ScanDetailScreen extends StatelessWidget {
     );
   }
 
-  /// Node 1:17643 - confidence ring over the diagnosis.
+  /// confidence ring + diagnosis
   Widget _diagnosisCard(BuildContext context) {
     return ActivityCard(
       padding: const EdgeInsets.all(25),
@@ -205,7 +203,7 @@ class ScanDetailScreen extends StatelessWidget {
     );
   }
 
-  /// Node 1:17660 - a white card with the two follow-up actions.
+  /// white card, two follow-up buttons
   Widget _actionsCard(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -265,7 +263,7 @@ class ScanDetailScreen extends StatelessWidget {
     );
   }
 
-  /// Node 1:17680 - the metadata rows.
+  /// date / location / device rows
   Widget _detailsCard(BuildContext context) {
     return ActivityCard(
       padding: const EdgeInsets.all(25),

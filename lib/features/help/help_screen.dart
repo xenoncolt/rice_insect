@@ -7,11 +7,8 @@ import '../../core/widgets/primary_pill_button.dart';
 import '../../core/widgets/surface_card.dart';
 import '../settings/widgets/settings_app_bar.dart';
 
-/// Node 52:991 (Help).
-///
-/// Geometry from the node tree: two 358x190 quick-link cards, each with a
-/// 128pt decorative disc bleeding off its top-right corner and a 48pt icon
-/// badge, then a 358x221 contact box with a filled and an outlined action.
+/// figma 52:991. two quick-link cards with a big disc poking out of the top
+/// right corner, then the contact box.
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
 
@@ -82,7 +79,7 @@ class _QuickLinkCard extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: <Widget>[
-          // Node 52:1014 - a 128pt disc hanging off the top-right corner.
+          // the 128pt disc hanging off the corner
           Positioned(
             right: -64,
             top: -56,

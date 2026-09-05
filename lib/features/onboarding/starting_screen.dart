@@ -5,8 +5,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import 'language_screen.dart';
 
-/// Node 59:239 - the splash. The logo settles in while the bar fills, then the
-/// screen hands off to language selection.
+/// figma 59:239. splash: logo fades in, bar fills, then go to language.
 class StartingScreen extends StatefulWidget {
   const StartingScreen({super.key});
 
@@ -131,7 +130,7 @@ class _StartingScreenState extends State<StartingScreen>
                         alignment: Alignment.centerLeft,
                         child: FractionallySizedBox(
                           alignment: Alignment.centerLeft,
-                          // Starts at the 40pt bar drawn in Figma and fills.
+                          // figma draws it at 40pt already filled, so start there
                           widthFactor: 0.4 + (0.6 * _progress.value),
                           child: DecoratedBox(
                             decoration: BoxDecoration(

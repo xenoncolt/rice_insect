@@ -11,8 +11,8 @@ class AppNavDestination {
   final String labelKey;
 }
 
-/// Bottom bar from node 59:483. The selected item keeps a pill behind its icon;
-/// the pill grows in and the icon lifts when the selection moves.
+/// figma 59:483. selected tab gets a pill behind the icon, which grows in
+/// as you switch.
 class AppBottomNav extends StatelessWidget {
   const AppBottomNav({
     required this.destinations,

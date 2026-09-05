@@ -6,12 +6,11 @@ import '../../core/theme/app_theme.dart';
 import 'scan_detail_screen.dart';
 import 'widgets/activity_cards.dart';
 
-/// Nodes 1:17873, 50:276, 50:414, 50:502 and 50:577.
+/// figma 1:17873, 50:276, 50:414, 50:502, 50:577
 ///
-/// Figma draws these as five frames, but they are one screen: the same header,
-/// search field and filter chips with a different list underneath, plus a
-/// search-focused state. Built as one screen with a filter, which is what the
-/// frames describe.
+/// figma has these as 5 separate frames but it's really one screen - same
+/// header, search and chips, just a different list below. so one screen with
+/// a filter instead of copying the chrome 5 times.
 enum ActivityFilter { all, thisWeek, lastMonth, pests, healthy }
 
 class RecentActivityScreen extends StatefulWidget {
@@ -133,7 +132,7 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     );
   }
 
-  /// Node 1:17880 - a 358x50 #ECEFE3 field with the icon inset at x12.
+  /// 358x50 field, icon inset at x12
   Widget _searchField(BuildContext context) {
     return Row(
       spacing: 8,
@@ -205,7 +204,7 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     borderSide: BorderSide.none,
   );
 
-  /// Node 50:283 - the focused state swaps the list for recent searches.
+  /// focused = show recent searches instead of the list
   Widget _recentSearches(BuildContext context) {
     final List<String> terms = <String>[
       context.tr('activity.recentSearch1'),
@@ -252,8 +251,8 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     );
   }
 
-  /// Node 1:17886 - 32pt pills, active #A8E77B, the rest #E7E9DD. The row is
-  /// 461pt of chips in a 358pt frame, so it scrolls.
+  /// 32pt pills. the chips add up to 461pt in a 358pt row so it scrolls -
+  /// that's how figma has it, not a bug.
   Widget _filterChips(BuildContext context) {
     return SizedBox(
       height: 32,
@@ -303,7 +302,7 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     };
   }
 
-  /// Node 1:17897 - 358x103 rows with a 64pt thumbnail.
+  /// 103pt rows with a 64pt thumb
   Widget _scanList(BuildContext context, {required bool healthyOnly}) {
     final List<ScanEntry> entries = <ScanEntry>[
       ScanEntry(
@@ -348,7 +347,7 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     );
   }
 
-  /// Node 50:421 - entries grouped under a date heading.
+  /// entries grouped under a date
   Widget _timeline(BuildContext context) {
     final bool week = _filter == ActivityFilter.thisWeek;
     final String prefix = week ? 'activity.week' : 'activity.month';
@@ -387,7 +386,7 @@ class _RecentActivityScreenState extends State<RecentActivityScreen> {
     );
   }
 
-  /// Node 50:584 - 358x419 cards with a photo, risk badge and an action.
+  /// big cards: photo, risk badge, action button
   Widget _pestList(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),

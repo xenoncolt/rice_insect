@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Holds the active locale. Screens change the language by calling
-/// `LocaleScope.of(context).value = const Locale('bn')`.
+/// current locale. set it with LocaleScope.of(context).value = ...
 class LocaleController extends ValueNotifier<Locale> {
   LocaleController(super.value);
 }

@@ -8,15 +8,14 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../pest/pest_details_screen.dart';
 
-/// Node 1:17303.
+/// figma 1:17303
 ///
-/// The ring sweeps and the status line cross-fades over a fixed duration. When
-/// the AI model lands, drive [_controller] from its real progress and pass the
-/// result through to [PestDetailsScreen] instead of just the image.
+/// ring + status text run on a fixed timer for now. once the model is in,
+/// drive _controller from its real progress and pass the result through.
 class ProcessingResultScreen extends StatefulWidget {
   const ProcessingResultScreen({this.imagePath, super.key});
 
-  /// The captured or picked photo. Null when the camera was unavailable.
+  /// the photo we're scanning. null if there was no camera.
   final String? imagePath;
 
   static const Duration analysisDuration = Duration(milliseconds: 4200);
@@ -35,8 +34,8 @@ class _ProcessingResultScreenState extends State<ProcessingResultScreen>
   @override
   void initState() {
     super.initState();
-    // whenComplete does not fire if the controller is disposed first, so
-    // cancelling out of the screen simply drops the hand-off.
+    // whenComplete won't fire if the controller is disposed first, so
+    // backing out just cancels it
     _controller.forward().whenComplete(_showResult);
   }
 
@@ -157,8 +156,7 @@ class _ProcessingResultScreenState extends State<ProcessingResultScreen>
     );
   }
 
-  /// Figma stacks two messages with the second at zero opacity; they swap
-  /// halfway through the analysis.
+  /// figma stacks 2 messages with the 2nd hidden. swap them halfway.
   Widget _statusMessage(BuildContext context) {
     return AnimatedBuilder(
       animation: _controller,
@@ -207,8 +205,7 @@ class _ProcessingResultScreenState extends State<ProcessingResultScreen>
   }
 }
 
-/// Node 1:17304 - the photo being analysed, blurred right back so the status
-/// text stays readable over it.
+/// figma 1:17304. the photo, blurred hard so the text stays readable.
 class _BlurredBackdrop extends StatelessWidget {
   const _BlurredBackdrop({required this.imagePath});
 

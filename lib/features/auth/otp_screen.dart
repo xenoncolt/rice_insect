@@ -8,11 +8,10 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/primary_pill_button.dart';
 import '../shell/app_shell.dart';
 
-/// Node 1:17481.
+/// figma 1:17481
 ///
-/// Figma draws the six boxes at a fixed 48pt each (328pt total), which does not
-/// fit inside the 390pt frame once the card padding is applied. The boxes flex
-/// to the available width here so the row never overflows.
+/// figma has the 6 boxes at a fixed 48pt = 328pt, which doesn't fit in the
+/// 390pt frame once the card padding is there. so they flex instead.
 class OtpScreen extends StatefulWidget {
   const OtpScreen({required this.phoneNumber, super.key});
 

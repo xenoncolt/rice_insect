@@ -4,9 +4,8 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 
-/// Why a weather lookup could not complete. Each maps to its own message on the
-/// home card so the user knows whether to grant a permission, switch location
-/// services on, or just retry.
+/// why the lookup failed. each one gets its own message on the home card so
+/// the user knows what to actually do about it.
 enum WeatherFailure { locationServicesOff, permissionDenied, unavailable }
 
 class WeatherException implements Exception {
@@ -18,7 +17,7 @@ class WeatherException implements Exception {
   String toString() => 'WeatherException($failure)';
 }
 
-/// A resolved reading for the user's current position.
+/// one reading for wherever the user is
 class WeatherSnapshot {
   const WeatherSnapshot({
     required this.temperatureC,
@@ -34,18 +33,18 @@ class WeatherSnapshot {
   final double lowC;
   final int humidityPercent;
 
-  /// WMO code from Open-Meteo; see [weatherConditionKey].
+  /// WMO code, see weatherConditionKey
   final int weatherCode;
 
-  /// Town or district from reverse geocoding. Null when it cannot be resolved -
-  /// the reading is still valid without it.
+  /// town/district from reverse geocoding. null is fine, the reading still
+  /// works without it.
   final String? placeName;
 }
 
-/// Live weather for wherever the user is.
+/// live weather.
 ///
-/// Open-Meteo needs no API key and no account, and the place name comes from
-/// the platform's own geocoder, so this pulls in no billable service.
+/// open-meteo needs no api key or account, and the place name comes from the
+/// phone's own geocoder, so nothing here costs money.
 class WeatherService {
   const WeatherService();
 
@@ -99,8 +98,7 @@ class WeatherService {
     }
 
     try {
-      // Medium accuracy is plenty for weather and resolves far faster than a
-      // GPS-grade fix.
+      // medium accuracy is fine for weather and way faster than a gps fix
       return await Geolocator.getCurrentPosition(
         locationSettings: const LocationSettings(
           accuracy: LocationAccuracy.medium,
@@ -108,7 +106,7 @@ class WeatherService {
         ),
       );
     } on Object {
-      // A cached fix is better than no weather at all.
+      // an old fix beats no weather at all
       final Position? last = await Geolocator.getLastKnownPosition();
       if (last == null) {
         throw const WeatherException(WeatherFailure.unavailable);
@@ -142,10 +140,10 @@ class WeatherService {
     }
   }
 
-  /// Best-effort: a missing place name never fails the reading.
+  /// best effort, never fail the reading just because of the name
   Future<String?> _resolvePlaceName(double lat, double lon) async {
     try {
-      // geocoding 5.x moved reverse lookup onto a Geocoding instance.
+      // geocoding 5.x moved this onto a Geocoding instance
       final List<Placemark> marks = await Geocoding().placemarkFromCoordinates(
         lat,
         lon,
@@ -171,7 +169,7 @@ class WeatherService {
   }
 }
 
-/// Translation key for a WMO weather code, as documented by Open-Meteo.
+/// WMO code -> translation key. codes are from the open-meteo docs.
 String weatherConditionKey(int code) {
   return switch (code) {
     0 => 'weatherCondition.clear',

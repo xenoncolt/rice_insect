@@ -4,11 +4,11 @@ import '../../../core/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
 
-/// Node 59:506 - 64pt bar carrying the logo, the app name and the profile
-/// button. The profile falls back to an icon until an avatar URL exists.
+/// figma 59:506. 64pt bar: logo, name, profile. profile is just an icon
+/// until there's a real avatar.
 ///
-/// The surface paints up behind the status bar while [SafeArea] keeps the
-/// contents clear of it, so the bar never collides with the system clock.
+/// background paints behind the status bar but SafeArea pushes the contents
+/// down, otherwise it sits under the clock.
 class HomeTopAppBar extends StatelessWidget {
   const HomeTopAppBar({super.key});
 
@@ -43,9 +43,8 @@ class HomeTopAppBar extends StatelessWidget {
                   cacheWidth: 96,
                 ),
                 const SizedBox(width: 8),
-                // Expanded, not Flexible plus a Spacer: two flex children
-                // would split the free space between them and leave the
-                // avatar short of the right edge.
+                // Expanded here, not Flexible + Spacer. two flex children
+                // split the space and the avatar ends up short of the edge.
                 Expanded(
                   child: Text(
                     context.tr('app.name'),

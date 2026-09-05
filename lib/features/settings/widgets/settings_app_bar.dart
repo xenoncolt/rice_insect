@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
 
-/// Nodes 67:167 and 62:38 - a 64pt bar with a 32pt back button at x16 and a
-/// 28pt title starting at x64. Shared by every settings sub-page.
+/// 64pt bar, back button then title. used by all the settings sub-pages.
 class SettingsAppBar extends StatelessWidget {
   const SettingsAppBar({required this.title, super.key});
 

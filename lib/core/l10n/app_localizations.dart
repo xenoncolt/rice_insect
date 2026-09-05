@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-/// Locales the app ships translation files for. Add a locale here and drop a
-/// matching `assets/i18n/<code>.json` next to the existing ones.
+/// languages we ship. add one here + drop assets/i18n/<code>.json next to
+/// the others.
 const List<Locale> kSupportedLocales = <Locale>[Locale('en'), Locale('bn')];
 
-/// Strings are held in flat `a.b.c` keys read from `assets/i18n/<code>.json`,
-/// so translations can be edited without touching Dart code.
+/// strings live in json as flat a.b.c keys, so translating never means
+/// touching dart.
 class AppLocalizations {
   const AppLocalizations(this.locale, this._strings);
 
@@ -31,7 +31,7 @@ class AppLocalizations {
     return AppLocalizations(locale, _flatten(decoded));
   }
 
-  /// `{"home": {"greeting": "Hi"}}` becomes `{"home.greeting": "Hi"}`.
+  /// {"home": {"greeting": "Hi"}} -> {"home.greeting": "Hi"}
   static Map<String, String> _flatten(
     Map<String, dynamic> source, [
     String prefix = '',
@@ -48,12 +48,10 @@ class AppLocalizations {
     return out;
   }
 
-  /// Returns the key itself when a translation is missing, which makes an
-  /// untranslated string obvious on screen rather than silently blank.
+  /// missing key returns the key itself, so I can see it on screen instead
+  /// of getting a blank.
   ///
-  /// [params] fills `{name}` placeholders, so a translator can move the value
-  /// to wherever it belongs in their sentence:
-  /// `t('gallery.upload', {'count': '3'})`.
+  /// params fills {name} holes: t('gallery.upload', {'count': '3'})
   String t(String key, [Map<String, String>? params]) {
     String value = _strings[key] ?? key;
     if (params != null) {
@@ -79,7 +77,7 @@ class AppLocalizationsScope extends InheritedWidget {
       localizations != oldWidget.localizations;
 }
 
-/// Shorthand: `context.tr('home.greeting')`.
+/// shortcut: context.tr('home.greeting')
 extension AppLocalizationsX on BuildContext {
   String tr(String key, [Map<String, String>? params]) =>
       AppLocalizations.of(this).t(key, params);

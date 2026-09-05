@@ -8,17 +8,16 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/surface_card.dart';
 
-/// Node 59:391 - greeting over a frosted weather panel, with a blurred green
-/// bloom escaping the top-right corner.
+/// figma 59:391. greeting + frosted weather panel, green blur escaping the
+/// top right corner.
 ///
-/// The reading is live: coordinates from the device, forecast from Open-Meteo,
-/// place name from the platform geocoder. Figma's single illustrated icon is
-/// replaced by a per-condition icon, since one drawing cannot stand in for
-/// fifteen weather states.
+/// weather is real: gps -> open-meteo -> platform geocoder for the place name.
+/// figma has one drawn icon but there are 15 weather codes, so I use a
+/// material icon per condition instead.
 class WelcomeWeatherCard extends StatefulWidget {
   const WelcomeWeatherCard({this.service = const WeatherService(), super.key});
 
-  /// Swapped for a fake in tests.
+  /// tests pass a fake
   final WeatherService service;
 
   @override
@@ -95,7 +94,7 @@ class _Greeting extends StatelessWidget {
       children: <Widget>[
         Text(context.tr('home.greeting'), style: AppText.body),
         const SizedBox(height: 4),
-        // Figma reserves an empty 48pt block here; the resolved place sits in it.
+        // figma leaves an empty 48pt gap here, place name goes in it
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
           child: placeName == null
@@ -270,8 +269,7 @@ class _Reading extends StatelessWidget {
   }
 }
 
-/// Keeps the panel the same height whether it is loading, failed, or showing a
-/// reading, so the card never jumps.
+/// same height loading / failed / loaded, so the card doesn't jump around
 class _Message extends StatelessWidget {
   const _Message({
     required this.text,
